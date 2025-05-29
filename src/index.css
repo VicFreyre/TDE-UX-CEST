@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Estilos para modo de alto contraste */
+html.alto-contraste {
+  filter: contrast(150%);
+}
+
+/* Filtros para daltonismo */
+html.protanopia {
+  filter: url('#protanopia');
+}
+
+html.deuteranopia {
+  filter: url('#deuteranopia');
+}
+
+html.tritanopia {
+  filter: url('#tritanopia');
+}
+
+html.achromatopsia {
+  filter: grayscale(100%);
+}
+
+/* SVG filtros para daltonismo */
+body::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+body::after {
+  content: 
+    '<svg id="svg-filters" xmlns="http://www.w3.org/2000/svg">'
+      '<filter id="protanopia">'
+        '<feColorMatrix type="matrix" values="0.567, 0.433, 0, 0, 0, 0.558, 0.442, 0, 0, 0, 0, 0.242, 0.758, 0, 0, 0, 0, 0, 1, 0"/>'
+      '</filter>'
+      '<filter id="deuteranopia">'
+        '<feColorMatrix type="matrix" values="0.625, 0.375, 0, 0, 0, 0.7, 0.3, 0, 0, 0, 0, 0.3, 0.7, 0, 0, 0, 0, 0, 1, 0"/>'
+      '</filter>'
+      '<filter id="tritanopia">'
+        '<feColorMatrix type="matrix" values="0.95, 0.05, 0, 0, 0, 0, 0.433, 0.567, 0, 0, 0, 0.475, 0.525, 0, 0, 0, 0, 0, 1, 0"/>'
+      '</filter>'
+    '</svg>';
+}
+
+/* Transições de elemento */
+.transition-colors {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-shadow {
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
