@@ -1,17 +1,14 @@
-// Este componente React chamado "Hero" representa a seção principal (hero section) de uma página inicial,
-// destacando o impacto de uma plataforma educacional no Nordeste do Brasil. Ele utiliza animações do Framer Motion
-// para exibir estatísticas animadas sobre cursos, matrículas, contratações e vagas de emprego. Os dados são simulados
-// (mockados) e atualizados periodicamente com pequenas variações aleatórias para simular crescimento dinâmico.
-// Além disso, o layout inclui elementos animados de fundo e botões com links para outras seções da plataforma,
-// promovendo os cursos disponíveis e as vagas de emprego.
-
-// ESTRUTURAS DE DADOS UTILIZADAS:
-// 1. OBJETO: usado para agrupar estatísticas em pares chave-valor (ex: totalCursos, totalMatriculas, etc.)
-// 2. ARRAY: usado implicitamente nas animações do framer-motion (ex: [0, 10, 0]) para simular movimentos cíclicos
-// 3. FUNÇÕES: tratadas como dados em React (ex: passadas para hooks como useEffect e setInterval)
-// 4. PRIMITIVOS: strings (ex: títulos, textos, rotas) e números (valores estatísticos)
-// 5. ÁRVORE (Virtual DOM): estrutura em forma de árvore JSX que representa os elementos visuais da interface
-// Estas estruturas juntas permitem organizar, animar e renderizar o conteúdo interativo da seção principal do aplicativo.
+// Componente Hero.tsx
+// Este componente React exibe uma seção de destaque para uma plataforma de capacitação profissional.
+// Ele apresenta um título, uma descrição, botões de navegação e um painel de estatísticas de impacto
+// que são animadas e atualizadas dinamicamente a cada 7 segundos.
+//
+// Estruturas de dados usadas:
+// - Objeto (stats): para armazenar os valores das estatísticas atuais (totalCursos, totalMatriculas, etc).
+// - Matriz (statsArray): um array multidimensional que contém pares [string, number], onde cada par
+//   representa o nome da estatística e seu valor atual. Essa matriz é usada para renderizar dinamicamente os cards de estatísticas.
+//
+// O componente também utiliza a biblioteca Framer Motion para animar os elementos da interface.
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -19,6 +16,7 @@ import { estatisticasMock } from '../../data/mockData';
 import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
+  // Estado para armazenar as estatísticas em objeto
   const [stats, setStats] = useState({
     totalCursos: 0,
     totalMatriculas: 0,
@@ -27,19 +25,14 @@ const Hero: React.FC = () => {
   });
 
   useEffect(() => {
-    // Initial animation
     animateStats();
-
-    // Set up interval for periodic updates
     const interval = setInterval(() => {
       animateStats();
     }, 7000);
-
     return () => clearInterval(interval);
   }, []);
 
   const animateStats = () => {
-    // Generate random increase percentages between 2-5%
     const increasePercentage = {
       cursos: 1 + Math.random() * 0.03,
       matriculas: 1 + Math.random() * 0.03,
@@ -54,6 +47,15 @@ const Hero: React.FC = () => {
       totalVagas: Math.floor(estatisticasMock.totalVagas * increasePercentage.vagas)
     });
   };
+
+  // Matriz contendo pares [label, valor]
+  // Usamos o estado stats para preencher os valores dinamicamente
+  const statsArray: [string, number][] = [
+    ['Cursos Disponíveis', stats.totalCursos],
+    ['Matrículas Realizadas', stats.totalMatriculas],
+    ['Contratações', stats.totalContratacoes],
+    ['Vagas Disponíveis', stats.totalVagas],
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -77,7 +79,7 @@ const Hero: React.FC = () => {
 
   const statCardVariants = {
     initial: {
-      boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)" // Initial subtle shadow
+      boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
     },
     hover: {
       scale: 1.05,
@@ -86,11 +88,11 @@ const Hero: React.FC = () => {
         stiffness: 400,
         damping: 10
       },
-      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)" // Slightly more prominent shadow on hover
+      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)"
     },
     tap: {
       scale: 0.95,
-      boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)" // Shadow when tapped
+      boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)"
     }
   };
 
@@ -177,131 +179,47 @@ const Hero: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* Estatísticas de impacto */}
+        {/* Estatísticas de impacto geradas dinamicamente a partir da matriz */}
         <motion.div 
           className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
-          <motion.div 
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center relative overflow-hidden"
-            variants={statCardVariants}
-            initial="initial" // Set initial state for shadow
-            whileHover="hover"
-            whileTap="tap"
-          >
-            <motion.div
-              className="absolute inset-0 bg-white/5"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.1, 0.2, 0.1],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            <motion.p 
-              className="text-3xl md:text-4xl font-bold mb-2"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 0.5 }}
+          {statsArray.map(([label, value], index) => (
+            <motion.div 
+              key={label}
+              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center relative overflow-hidden"
+              variants={statCardVariants}
+              initial="initial"
+              whileHover="hover"
+              whileTap="tap"
             >
-              {stats.totalCursos}
-            </motion.p>
-            <p className="text-sm opacity-90">Cursos Disponíveis</p>
-          </motion.div>
-          
-          <motion.div 
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center relative overflow-hidden"
-            variants={statCardVariants}
-            initial="initial" // Set initial state for shadow
-            whileHover="hover"
-            whileTap="tap"
-          >
-            <motion.div
-              className="absolute inset-0 bg-white/5"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.1, 0.2, 0.1],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.5
-              }}
-            />
-            <motion.p 
-              className="text-3xl md:text-4xl font-bold mb-2"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 0.5 }}
-            >
-              {stats.totalMatriculas.toLocaleString('pt-BR')}
-            </motion.p>
-            <p className="text-sm opacity-90">Matrículas Realizadas</p>
-          </motion.div>
-          
-          <motion.div 
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center relative overflow-hidden"
-            variants={statCardVariants}
-            initial="initial" // Set initial state for shadow
-            whileHover="hover"
-            whileTap="tap"
-          >
-            <motion.div
-              className="absolute inset-0 bg-white/5"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.1, 0.2, 0.1],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
-              }}
-            />
-            <motion.p 
-              className="text-3xl md:text-4xl font-bold mb-2"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 0.5 }}
-            >
-              {stats.totalContratacoes.toLocaleString('pt-BR')}
-            </motion.p>
-            <p className="text-sm opacity-90">Contratações</p>
-          </motion.div>
-          
-          <motion.div 
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center relative overflow-hidden"
-            variants={statCardVariants}
-            initial="initial" // Set initial state for shadow
-            whileHover="hover"
-            whileTap="tap"
-          >
-            <motion.div
-              className="absolute inset-0 bg-white/5"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.1, 0.2, 0.1],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1.5
-              }}
-            />
-            <motion.p 
-              className="text-3xl md:text-4xl font-bold mb-2"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 0.5 }}
-            >
-              {stats.totalVagas}
-            </motion.p>
-            <p className="text-sm opacity-90">Vagas Disponíveis</p>
-          </motion.div>
+              <motion.div
+                className="absolute inset-0 bg-white/5"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.1, 0.2, 0.1],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: index * 0.5
+                }}
+              />
+              <motion.p 
+                className="text-3xl md:text-4xl font-bold mb-2"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 0.5 }}
+              >
+                {(label === 'Matrículas Realizadas' || label === 'Contratações') 
+                  ? value.toLocaleString('pt-BR') 
+                  : value}
+              </motion.p>
+              <p className="text-sm opacity-90">{label}</p>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
