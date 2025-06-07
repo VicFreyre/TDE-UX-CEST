@@ -1,6 +1,11 @@
-// Componente principal da aplicação React que configura a estrutura geral da SPA (Single Page Application).
-// Ele inclui provedores de contexto para acessibilidade e dados do usuário, além do roteamento entre páginas.
-// Utiliza React Router para navegação entre HomePage, UniPlusPage, EmpregaPlusPage e ProfilePage.
+// Este componente principal configura a aplicação React como uma SPA (Single Page Application).
+// Ele usa React Router para gerenciar a navegação entre páginas diferentes (HomePage, UniPlusPage, EmpregaPlusPage e ProfilePage).
+// 
+// Uso de pilha:
+// A navegação entre páginas no React Router utiliza o histórico do navegador, que funciona internamente como uma pilha (LIFO).
+// Cada vez que uma rota é acessada, ela é adicionada ao topo da pilha do histórico.
+// Ao navegar para trás (back), a pilha desempilha a página atual e retorna à anterior.
+// Essa pilha de navegação é gerenciada pelo próprio navegador e manipulada pelo React Router, portanto não há uma pilha explícita no código React, mas sim uma pilha implícita no histórico de navegação.
 //
 // Estruturas de dados e conceitos usados:
 // - Componentes funcionais React (React.FC implícito).
@@ -8,8 +13,9 @@
 // - React Router (BrowserRouter, Routes, Route) para navegação entre rotas.
 // - JSX para composição da interface, com Navbar, Footer, FloatingButtons e área principal de conteúdo.
 // - Layout baseado em flexbox (classe CSS "flex flex-col min-h-screen bg-neutral-50").
-//
+// 
 // O componente encapsula toda a aplicação, garantindo que a navegação e os estados globais estejam disponíveis para todos os componentes internos.
+
 
 
 import React from 'react';
