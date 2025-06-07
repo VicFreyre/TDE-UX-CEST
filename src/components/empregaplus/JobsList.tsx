@@ -1,3 +1,10 @@
+// Este componente React chamado JobsList exibe uma lista de vagas de emprego com funcionalidades de busca, filtro por setor, localidade e status de candidatura. 
+// Também permite ao usuário visualizar estatísticas das vagas disponíveis (por setor e média salarial), além de se candidatar a vagas diretamente na interface.
+// Ele utiliza os hooks do React, contexto de usuário para saber as vagas aplicadas, animações com Framer Motion, ícones do Lucide, 
+// gráficos com Chart.js e dados simulados de vagas.
+// A PRINCIPAL ESTRUTURA DE DADOS UTILIZADA NESSE MODULO É: ARRAY (VETOR)
+
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, BarChart2, X, MapPin, Briefcase, DollarSign } from 'lucide-react';

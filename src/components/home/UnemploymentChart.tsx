@@ -1,3 +1,33 @@
+// ESTE COMPONENTE EXIBE UM GRÁFICO DE LINHA INTERATIVO QUE MOSTRA A EVOLUÇÃO DA TAXA DE DESEMPREGO NOS ESTADOS DO NORDESTE DO BRASIL NOS ÚLTIMOS SEMESTRES.
+// O USUÁRIO PODE SELECIONAR QUAIS ESTADOS DESEJA VISUALIZAR ATRAVÉS DE BOTÕES INTERATIVOS, QUE ALTERAM DINAMICAMENTE OS DADOS EXIBIDOS NO GRÁFICO.
+
+// ESTRUTURAS DE DADOS UTILIZADAS:
+
+// 1. ARRAY:
+//    - `labels`: array de strings que representam os períodos semestrais (rótulos do eixo X).
+//    - `estadosSelecionados`: array de strings (siglas dos estados) armazenado no estado do componente (useState).
+//    - `estadosNordesteMock`: array de objetos importado, onde cada objeto representa um estado com suas propriedades, incluindo a taxa de desemprego.
+
+// 2. OBJETOS:
+//    - Cada elemento de `estadosNordesteMock` é um objeto com propriedades como `sigla`, `nome` e `taxaDesemprego` (array de números).
+//    - O objeto `chartData` que estrutura os dados para o gráfico, contendo `labels` e `datasets` (array de objetos que representam cada linha do gráfico).
+
+// 3. FUNÇÕES:
+//    - `toggleEstado`: função que adiciona ou remove siglas de estados do array `estadosSelecionados`.
+//    - `generateGradient`: função que cria gradientes de cor para estilizar as linhas do gráfico dinamicamente.
+
+// 4. HOOKS:
+//    - `useState` para gerenciar o estado dos estados selecionados.
+
+// 5. JSX:
+//    - Estrutura visual com botões dinâmicos para seleção dos estados e o componente de gráfico `Line` da biblioteca react-chartjs-2.
+
+// 6. ANIMAÇÕES:
+//    - Uso do `motion` para animação suave da aparição do gráfico.
+
+// O COMPONENTE INTEGRA DADOS ESTÁTICOS SIMULADOS (MOCK) E ESTADO INTERNO PARA UMA EXPERIÊNCIA INTERATIVA E VISUAL RICA.
+
+
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { motion } from 'framer-motion';

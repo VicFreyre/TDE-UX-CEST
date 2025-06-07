@@ -1,3 +1,17 @@
+// Contexto React para gerenciar o estado do usuário em uma aplicação educacional/ofertas de vagas.
+// Funcionalidades principais:
+// - Armazenar os dados do usuário (usuário mock inicial).
+// - Permitir matrícula em cursos, garantindo que não haja duplicidade.
+// - Atualizar o progresso de um curso específico do usuário e gerar certificados automaticamente quando o curso é concluído.
+// - Permitir candidatura a vagas, evitando candidaturas duplicadas.
+
+// Estruturas de dados utilizadas:
+// - Objeto User que contém arrays de cursos, vagas aplicadas e certificados.
+// - Array para armazenar cursos matriculados, vagas aplicadas e certificados.
+// - useState para manter o estado reativo do usuário.
+// - Context API (createContext) para fornecer dados e funções do usuário a todos os componentes da aplicação.
+// - Funções que manipulam e atualizam esses arrays imutavelmente (spread operator e map).
+
 import React, { createContext, useState, useContext } from 'react';
 import { User, Curso, Vaga } from '../types';
 import { usuarioMock } from '../data/mockData';

@@ -1,3 +1,15 @@
+// Componente React funcional que implementa a barra de navegação (Navbar) responsiva de um site.
+// Permite navegação entre páginas usando react-router-dom (Links).
+// Inclui menu para desktop e menu móvel que pode ser aberto/fechado com animações (framer-motion).
+// Destaca o link ativo com base na rota atual (useLocation).
+// Mostra informações do usuário logado, obtidas do contexto global (useUser).
+//
+// Estruturas de dados utilizadas:
+// - Estado React (useState) para controlar se o menu móvel está aberto ou fechado (boolean).
+// - Objetos para armazenar informações do usuário (user: objeto com propriedades como nome, foto e estado).
+// - Strings para URLs e textos dos links.
+// - JSX para estruturação da interface (listas implícitas de links renderizados como múltiplos componentes Link).
+
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Home, GraduationCap, Briefcase, User } from 'lucide-react';

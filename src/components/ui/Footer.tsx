@@ -1,3 +1,14 @@
+// Componente funcional React que implementa o rodapé (Footer) do site.
+// Exibe logo, descrição, ícones de redes sociais, links rápidos, links institucionais e informações de contato.
+// Usa componentes Link do react-router-dom para navegação interna do site.
+// Utiliza ícones importados da biblioteca lucide-react para elementos visuais de redes sociais e contato.
+// Estrutura de dados utilizadas:
+// - JSX com elementos HTML estruturados em divs e listas (<ul>, <li>) para organizar conteúdo.
+// - Arrays implícitos nas listas de links (não explicitamente definidos como array, mas renderizados como listas estáticas).
+// - Strings para textos estáticos e URLs dos links.
+// Não há uso explícito de estados, objetos complexos ou manipulação dinâmica de dados.
+
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter, Mail, Phone } from 'lucide-react';
@@ -102,9 +113,9 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-10 pt-6 border-t border-white/20 text-center text-neutral-200 text-sm">
-          <p>© {new Date().getFullYear()} Nordeste+ | Todos os direitos reservados</p>
+          <p> Estrutura de Dados | TDE 2 </p>
           <p className="mt-2">
-            Um projeto social para redução do desemprego e aumento da qualificação profissional no Nordeste brasileiro
+            Desenvolvido por: Victória Freyre, Arlington Júnior, Dannyelen Dourado, Marcus Pacheco e Jefferson Freitas.
           </p>
         </div>
       </div>

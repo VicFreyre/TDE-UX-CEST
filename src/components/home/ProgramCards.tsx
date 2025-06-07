@@ -1,3 +1,19 @@
+// ESTE COMPONENTE EXIBE DOIS CARDS PRINCIPAIS ("Uni+" e "Emprega+") COM INFORMAÇÕES SOBRE PROGRAMAS EDUCACIONAIS E DE EMPREGABILIDADE DO NORDESTE+.
+// CADA CARD POSSUI ÍCONE, TÍTULO, DESCRIÇÃO E UM LINK PARA A PÁGINA DO PROGRAMA, COM ANIMAÇÕES SUAVES AO PASSAR O MOUSE.
+// É UM COMPONENTE VISUAL E INTERATIVO.
+
+// ESTRUTURAS DE DADOS UTILIZADAS:
+
+// 1. JSX (Árvore de Elementos React): estrutura de árvore para descrever a interface visual dos componentes.
+// 2. OBJETO: usado implicitamente em props como `transition={{ type: "spring", stiffness: 400, damping: 10 }}` e `whileHover={{ y: -5 }}`.
+// 3. FUNÇÕES: `ProgramCards` é uma função componente (`React.FC`), e o `motion.div` usa funções para animação.
+// 4. STRINGS: usadas para rotas (`to="/uni-plus"`), textos de interface e nomes de classes CSS.
+// 5. COMPONENTES (como estruturas compostas): `Link`, `motion.div`, `GraduationCap`, `Briefcase`, etc., encapsulam lógica e visual.
+
+// NÃO HÁ USO EXPLÍCITO DE VETORES (arrays) OU ESTRUTURAS COMO LISTAS, FILAS, PILHAS OU MAPAS NESTA PARTE DO CÓDIGO.
+// O FOCO ESTÁ NA COMPOSIÇÃO VISUAL E COMPORTAMENTAL (INTERAÇÃO) USANDO COMPONENTES E PROPRIEDADES.
+
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';

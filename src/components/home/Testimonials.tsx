@@ -1,3 +1,18 @@
+// ESTE COMPONENTE EXIBE UMA SEÇÃO DE "HISTÓRIAS DE SUCESSO" COM DEPOIMENTOS DE PESSOAS QUE PARTICIPARAM DOS PROGRAMAS DO NORDESTE+.
+// OS DEPOIMENTOS SÃO CARREGADOS DE UM MOCK (ARRAY DE OBJETOS) E RENDERIZADOS DINAMICAMENTE USANDO O MÉTODO .map() DO JAVASCRIPT.
+// CADA DEPOIMENTO É EXIBIDO EM UM CARD ANIMADO, COM FOTO, NOME, LOCALIZAÇÃO, TEXTO DO DEPOIMENTO, CURSO E EMPREGO.
+
+// ESTRUTURAS DE DADOS UTILIZADAS:
+
+// 1. ARRAY: `depoimentosMock` é um array de objetos contendo os dados dos depoimentos.
+// 2. OBJETOS: Cada elemento do array é um objeto com propriedades como `id`, `nome`, `foto`, `estado`, `texto`, `curso` e `emprego`.
+// 3. FUNÇÃO: `Testimonials` é uma função componente que retorna JSX para renderizar o conteúdo.
+// 4. JSX: Representa a estrutura hierárquica dos elementos visuais do componente.
+// 5. STRINGS: usadas para texto, rotas e propriedades CSS.
+// 6. COMPONENTES: Importados e utilizados para composição da interface, incluindo animações com `motion`.
+
+// O FOCO PRINCIPAL É A ITERAÇÃO DINÂMICA SOBRE UM ARRAY DE OBJETOS PARA RENDERIZAR MÚLTIPLOS CARDS DE DEPOIMENTOS COM ANIMAÇÕES.
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';

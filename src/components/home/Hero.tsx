@@ -1,3 +1,18 @@
+// Este componente React chamado "Hero" representa a seção principal (hero section) de uma página inicial,
+// destacando o impacto de uma plataforma educacional no Nordeste do Brasil. Ele utiliza animações do Framer Motion
+// para exibir estatísticas animadas sobre cursos, matrículas, contratações e vagas de emprego. Os dados são simulados
+// (mockados) e atualizados periodicamente com pequenas variações aleatórias para simular crescimento dinâmico.
+// Além disso, o layout inclui elementos animados de fundo e botões com links para outras seções da plataforma,
+// promovendo os cursos disponíveis e as vagas de emprego.
+
+// ESTRUTURAS DE DADOS UTILIZADAS:
+// 1. OBJETO: usado para agrupar estatísticas em pares chave-valor (ex: totalCursos, totalMatriculas, etc.)
+// 2. ARRAY: usado implicitamente nas animações do framer-motion (ex: [0, 10, 0]) para simular movimentos cíclicos
+// 3. FUNÇÕES: tratadas como dados em React (ex: passadas para hooks como useEffect e setInterval)
+// 4. PRIMITIVOS: strings (ex: títulos, textos, rotas) e números (valores estatísticos)
+// 5. ÁRVORE (Virtual DOM): estrutura em forma de árvore JSX que representa os elementos visuais da interface
+// Estas estruturas juntas permitem organizar, animar e renderizar o conteúdo interativo da seção principal do aplicativo.
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { estatisticasMock } from '../../data/mockData';

@@ -1,3 +1,20 @@
+// Contexto React para gerenciar configurações de acessibilidade da aplicação.
+// Funcionalidades:
+// - Controle do tamanho da fonte (aumentar/diminuir dentro de limites).
+// - Ativação/desativação do modo de alto contraste para melhor visualização.
+// - Seleção de modos de daltonismo (protanopia, deuteranopia, tritanopia, achromatopsia).
+// - Ativação/desativação de narrador (leitor de tela).
+// - Persistência das configurações no localStorage para manter preferências do usuário.
+// - Aplicação dinâmica das configurações no estilo do documento HTML via classes CSS e alteração do tamanho da fonte.
+
+// Estruturas de dados utilizadas:
+// - Objeto (interface AcessibilidadeConfig) para armazenar o estado da configuração de acessibilidade.
+// - State (useState) para controlar e atualizar a configuração atual de forma reativa.
+// - Context API (createContext) para fornecer e compartilhar as configurações e funções para toda a árvore de componentes React.
+// - localStorage para persistência de dados no navegador entre sessões.
+// - String para classes CSS aplicadas dinamicamente ao elemento <html> para estilos de acessibilidade.
+
+
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { AcessibilidadeConfig } from '../types';
 

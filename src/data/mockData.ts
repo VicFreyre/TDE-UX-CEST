@@ -1,3 +1,18 @@
+// Arquivo com dados mock (simulados) para a aplicação Nordeste+,
+// que envolvem usuários, cursos, vagas de emprego, depoimentos e dados estatísticos regionais.
+//
+// Objetivo:
+// - Fornecer dados estáticos para testes e desenvolvimento do sistema,
+//   simulando entidades reais como usuários, cursos disponíveis, vagas, depoimentos de alunos,
+//   e informações socioeconômicas dos estados do Nordeste.
+//
+// Estruturas de dados utilizadas:
+// - Objetos para representar entidades (User, Curso, Vaga, Depoimento, EstadoNordeste).
+// - Arrays para armazenar listas de cursos, vagas, depoimentos e estados.
+// - Dados com propriedades de tipos primitivos (string, number, arrays) organizados hierarquicamente.
+// - Uso de arrays dentro dos objetos para listas (ex: requisitos de vagas, cursos do usuário).
+// - Tipagem TypeScript para garantir a forma e consistência dos dados.
+
 import { User, Curso, Vaga, Depoimento, EstadoNordeste } from '../types';
 
 export const usuarioMock: User = {

@@ -1,3 +1,17 @@
+// Componente principal da aplicação React que configura a estrutura geral da SPA (Single Page Application).
+// Ele inclui provedores de contexto para acessibilidade e dados do usuário, além do roteamento entre páginas.
+// Utiliza React Router para navegação entre HomePage, UniPlusPage, EmpregaPlusPage e ProfilePage.
+//
+// Estruturas de dados e conceitos usados:
+// - Componentes funcionais React (React.FC implícito).
+// - Context API para gerenciamento global de estado (AcessibilidadeProvider e UserProvider).
+// - React Router (BrowserRouter, Routes, Route) para navegação entre rotas.
+// - JSX para composição da interface, com Navbar, Footer, FloatingButtons e área principal de conteúdo.
+// - Layout baseado em flexbox (classe CSS "flex flex-col min-h-screen bg-neutral-50").
+//
+// O componente encapsula toda a aplicação, garantindo que a navegação e os estados globais estejam disponíveis para todos os componentes internos.
+
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/ui/Navbar';

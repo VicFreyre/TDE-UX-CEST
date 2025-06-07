@@ -1,3 +1,17 @@
+// Este componente React chamado FloatingButtons cria um conjunto de botões flutuantes fixos na tela,
+// que permitem ao usuário abrir um menu com opções de perfil e acessibilidade.
+// Ele utiliza hooks de estado para controlar a abertura e fechamento desses menus (useState).
+// Utiliza o contexto para acessar dados do usuário (useUser) e configurações de acessibilidade (useAcessibilidade).
+// A biblioteca framer-motion é usada para animar a entrada e saída dos painéis e botões.
+// As estruturas de dados principais usadas são:
+// - Variáveis de estado (booleanas) para controlar a interface (menuAberto, perfilAberto, acessibilidadeAberta).
+// - Objetos (user, config) que contêm dados do usuário e configurações de acessibilidade.
+// - Arrays dentro do objeto user, como user.cursos e user.certificados, para listar cursos e certificados do usuário,
+//   incluindo filtragem e mapeamento para exibir progresso de cursos.
+// O componente é organizado em JSX e renderiza condicionalmente os painéis e botões com animações.
+
+
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Settings, User, X, Plus, Eye, MoveUp, MoveDown, Volume2, VolumeX } from 'lucide-react';

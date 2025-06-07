@@ -1,3 +1,19 @@
+// Componente React que exibe uma lista de cursos profissionalizantes com filtros, busca e estatísticas visuais.
+// Funcionalidades principais:
+// - Busca por texto no título e descrição dos cursos.
+// - Filtro por categoria dos cursos.
+// - Filtro para mostrar apenas cursos não matriculados pelo usuário.
+// - Exibição do status do curso para o usuário (cursando, concluído, não matriculado).
+// - Exibição de gráficos (barras e linha) com estatísticas de matrículas e taxa de conclusão mensal.
+// - Animações na renderização dos cursos usando framer-motion.
+
+// Estruturas de dados utilizadas:
+// - Array: para armazenar e manipular listas de cursos (cursosMock), categorias únicas e cursos filtrados.
+// - Set: para extrair categorias únicas dos cursos.
+// - Objetos: para representar cursos, usuário, dados dos gráficos e opções de configuração.
+// - State (useState): para armazenar valores reativos como filtros, visibilidade das estatísticas e busca.
+
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Filter, BarChart2, X } from 'lucide-react';

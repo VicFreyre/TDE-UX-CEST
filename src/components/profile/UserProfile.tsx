@@ -1,3 +1,15 @@
+// Este código define um componente React chamado UserProfile que exibe o perfil de um usuário, 
+// incluindo suas informações pessoais, cursos, certificados e vagas de emprego para as quais se candidatou.
+// Ele utiliza hooks do React para gerenciar o estado da aba selecionada e a expansão/retração das listas.
+// Usa animações da biblioteca framer-motion para transições suaves nos elementos da interface.
+// A interação principal é a simulação do progresso em cursos não concluídos, permitindo atualizar o progresso do usuário.
+
+// Estruturas de dados utilizadas:
+// - Estado (state) do React via useState para controlar abas e expansões (strings e booleanos).
+// - Arrays (listas) para armazenar e iterar sobre cursos, certificados e vagas aplicadas (user.cursos, user.certificados, user.vagasAplicadas).
+// - Objetos para representar cada curso, certificado e vaga, contendo propriedades como id, título, descrição, progresso, etc.
+
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
