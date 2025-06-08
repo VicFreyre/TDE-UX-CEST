@@ -4,7 +4,7 @@
 
 ![image](https://github.com/user-attachments/assets/5403263f-e26f-4ff6-a55f-3247da7dc6cb)
 
-- Acesse o deploy: https://nordeste-iklgldnlq-vics-projects-becbc9ab.vercel.app/ (requer credenciamento e autorização)
+- Acesse o deploy: https://nordeste-iota.vercel.app/
 ---
 
 ## 📌 Escopo do Projeto
@@ -30,7 +30,7 @@ A aplicação contempla funcionalidades principais organizadas em três módulos
 ---
 
 ## 🧩 Tecnologias Utilizadas
-
+Aplicação no componente **src**.
 - **Frontend**: React, TypeScript, JavaScript, HTML, CSS, Tailwind CSS, Bolt.new
 - **Backend**: Node.js (API)
 - **Build/Linting**: Vite, ESLint
@@ -88,8 +88,8 @@ A aplicação contempla funcionalidades principais organizadas em três módulos
 
 | Nome                                     | Função                    |
 |------------------------------------------|---------------------------|
-| Maria Victória Freyre Reis              | Dev Fullstack            |
-| Arlington Costa Tavares Junior          | Tech Lead                |
+| Maria Victória Freyre Reis              | Dev Fullstack + Tech Lead            |
+| Arlington Costa Tavares Junior          | QA                       |
 | Marcus Vinícius Costa Pachêco           | QA                       |
 | Dannyelen Christinna Dourado Garcez     | Product Owner            |
 | Jefferson Freitas Dos Santos            | QA                       |
