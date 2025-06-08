@@ -4,7 +4,7 @@
 
 ![image](https://github.com/user-attachments/assets/5403263f-e26f-4ff6-a55f-3247da7dc6cb)
 
-Acesse o deploy: https://nordeste-iklgldnlq-vics-projects-becbc9ab.vercel.app/ (requer credenciamento e autorização)
+- Acesse o deploy: https://nordeste-iklgldnlq-vics-projects-becbc9ab.vercel.app/ (requer credenciamento e autorização)
 ---
 
 ## 📌 Escopo do Projeto
